@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
 
-        // ★★ 修正 ★★: メールアドレスに "@" が含まれているかチェック
+        // メールアドレスに "@" と "." が含まれているかチェック
         if (email.value.indexOf('@') === -1 || email.value.indexOf('.') === -1) {
             alert('有効なメールアドレス（例: example@company.com）を入力してください。');
             return false;
@@ -185,6 +185,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const solution = solutionData[resultKey];
+
+        // ★★ 修正箇所：ご提案方針のテキストを結果に応じて変更 ★★
+        let recommendationText = '';
+        if (resultKey === 'agency' || resultKey === 'staff') {
+             // 人材紹介または人材派遣が最適な場合のテキスト
+            recommendationText = `診断結果が示すように、貴社は確実性やスピードを重視すべきフェーズです。弊社が直接取り扱っていない商品領域となる場合がございますが、特定の媒体に縛られず、パートナー企業との連携も含めて、貴社の課題解決に最も適した戦略をご提案いたします。<br>
+            商流や既得権の状況を確認の上、最適なパートナーシップをご提案させていただきます。`;
+        } else {
+             // 求人広告またはダイレクトサービスが最適な場合のテキスト（従来のテキスト）
+            recommendationText = `診断結果に基づき、特定の媒体に縛られず、貴社の課題解決に最も適したプランをカスタマイズしてご提案いたします。<br>
+            商流や既得権の状況を確認の上、最適なパートナーシップをご提案させていただきます。`;
+        }
+        // ----------------------------------------------------
         
         // 結果表示用HTMLの生成
         const resultHTML = `
@@ -202,14 +215,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <div class="recommendation-area">
                 <h4>💡 弊社からのご提案方針</h4>
-                <p>診断結果に基づき、特定の媒体に縛られず、貴社の課題解決に最も適したプランをカスタマイズしてご提案いたします。<br>
-                商流や既得権の状況を確認の上、最適なパートナーシップをご提案させていただきます。</p>
+                <p>${recommendationText}</p>
             </div>
         `;
 
         // 結果を画面に反映
         document.getElementById('result-type-main').textContent = "貴社に最適な採用戦略は...";
-        // スコア詳細表示を削除したため、ここへの代入は不要
         document.getElementById('result-details').innerHTML = resultHTML;
         
         // 表示切り替え
