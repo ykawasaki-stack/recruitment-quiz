@@ -1,5 +1,5 @@
 // 🚨 データを送信するGASのWebアプリURLに書き換えてください
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbz1lHRPAhNSwGdR2O2dh3F3-gaC5uVFD1Jk80apoiDfLEhRY_Tqwz2Ny-VCWw_H37YB/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbxjMMkzLSGhopGRY3OaB25oLHyoqjJtkIGb8JDgVMpcJDHXHaU8u1oEHu3OwEn01lwm/exec';
 
 document.addEventListener('DOMContentLoaded', function() {
     const quizSections = document.querySelectorAll('.quiz-section');
