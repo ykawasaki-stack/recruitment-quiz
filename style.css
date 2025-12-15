@@ -1,0 +1,300 @@
+/*================================
+  全体レイアウトとプロフェッショナルデザイン
+================================*/
+:root {
+    /* ベースカラーパレット */
+    --main-dark: #2c3e50;    /* 濃いテキスト/タイトル色 */
+    --main-accent: #1abc9c;  /* メインアクセント (ターコイズグリーン) */
+    --soft-gray: #ecf0f1;    /* 明るい背景/区切り線 */
+    --white: #ffffff;
+    --red-accent: #e74c3c;   /* 警告/強調 */
+    --text-color: #2c3e50;   /* 通常のテキスト色 */
+
+    /* タイプ別カラーパレット (結果の視覚化強化) */
+    --ad-color: #2980b9;    /* 求人広告: ブルー系 */
+    --direct-color: #f1c40f; /* ダイレクト: ゴールド系 */
+    --agency-color: #2ecc71; /* 紹介: グリーン系 */
+    --staff-color: #9b59b6;  /* 派遣: パープル系 */
+}
+
+body {
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background-color: #f5f7f9; /* 明るい背景 */
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    min-height: 100vh;
+    line-height: 1.7;
+}
+
+.main-container {
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--white);
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* シャドウをソフトに */
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+/* タイトルエリア */
+h1 {
+    text-align: center;
+    color: var(--main-dark);
+    font-size: 2.8em;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+}
+p {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 1.05em;
+    margin-bottom: 30px;
+}
+
+/* プログレスバー */
+#progress-bar-container {
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--main-accent);
+    box-shadow: 0 0 5px var(--main-accent);
+    transition: width 0.4s ease-in-out;
+}
+
+/* 複数ページ制御 */
+.quiz-section {
+    display: none;
+}
+.quiz-section.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    color: var(--main-accent);
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+/*================================
+  情報入力エリア & ポリシー
+================================*/
+#client-info {
+    margin-bottom: 40px;
+}
+#client-info h2 {
+    color: var(--red-accent);
+}
+#usage-policy {
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+#usage-policy p {
+    text-align: left;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+#usage-policy hr {
+    border: 0;
+    border-top: 1px dashed #ccc;
+    margin: 15px 0;
+}
+
+/*================================
+  質問と回答のタイルデザイン
+================================*/
+.question-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.question {
+    background: linear-gradient(145deg, #fefefe, #f4f4f4);
+    padding: 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--main-accent);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s;
+}
+.question:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+.question h3 {
+    color: var(--main-dark);
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* ラベル（選択肢のボックス）のスタイル */
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+label {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+    position: relative;
+}
+
+/* 選択された時のデザイン強化 */
+input[type="radio"]:checked + label {
+    background-color: var(--main-accent);
+    border-color: #12806e; 
+    color: var(--white);
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/*================================
+  ボタン (次へ/診断)
+================================*/
+.next-button, #submit-button {
+    display: block;
+    width: 300px;
+    margin: 30px auto 0 auto;
+    padding: 16px;
+    background-color: var(--main-accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(26, 188, 156, 0.4);
+    transition: all 0.2s;
+}
+
+.next-button:hover, #submit-button:hover {
+    background-color: #16a085;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 188, 156, 0.5);
+}
+
+/*================================
+  診断結果エリア (#result)
+================================*/
+#result {
+    padding: 40px;
+    background-color: var(--white);
+    border-left: 6px solid var(--red-accent);
+}
+
+/* 結果サマリー */
+.result-summary {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    background: var(--soft-gray);
+}
+
+/* 結果アイコン */
+.result-icon {
+    font-size: 6em;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+/* 結果タイトル */
+.result-title {
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+/* --- タイプ別カラーセット --- */
+.result-title[data-type="ad"] { color: var(--ad-color); }
+.result-title[data-type="direct"] { color: var(--direct-color); }
+.result-title[data-type="agency"] { color: var(--agency-color); }
+.result-title[data-type="staff"] { color: var(--staff-color); }
+
+/* 詳細分析ボックス */
+.result-detail-box {
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.result-detail-box h4 {
+    color: var(--main-accent);
+    font-size: 1.4em;
+    border-left: 5px solid var(--main-accent);
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+/* 提案エリア: 白背景で左側にアクセントライン */
+.recommendation-area {
+    background-color: var(--white); 
+    color: var(--text-color);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid var(--main-accent); /* メインアクセントカラーのライン */
+}
+
+.recommendation-area h4 {
+    color: var(--main-dark); 
+    font-size: 1.4em;
+    font-weight: 700;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* スコア詳細 */
+#result-score-detail {
+    font-weight: 500;
+    color: #555;
+}
+
+/* --- ロックボタン --- */
+#lock-button {
+    background-color: var(--red-accent);
+    font-weight: 700;
+}
+#lock-button.disabled {
+    background-color: #bdc3c7;
+    cursor: default;
+}

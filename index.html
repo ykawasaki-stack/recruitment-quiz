@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企業向け 採用手法診断</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        
+        <div id="usage-policy">
+            <p>下記の質問に『企業の方針』をご回答ください。後日、弊社より2営業日以内で折り返しご連絡差し上げます。</p>
+            <p>本アンケートは、求職・採用活動に関する企業様の状況や課題を把握し、今後の採用活動に関するご案内、サポートを目的として実施しております。</p>
+            <p>弊社は、取得した情報を上記の目的の範囲内でのみ利用し、目的外の利用は一切行いません。</p>
+            <p>ご不明点がある場合は、048-647-1311または y.kawasaki@prdaily.jp メディア事業部 川﨑 までお問い合わせくださいませ。</p>
+            <hr>
+        </div>
+
+        <h1>貴社に最適な採用手法は？</h1>
+        <p style="font-size:1.1em; color:var(--main-accent); font-weight:700;">予想回答時間：約2分</p>
+        <p>現状の課題や優先順位に関する10問に回答し、リスクのない最適な採用アプローチを診断します。</p>
+        
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <div id="client-info">
+            <h2>基本情報入力（必須）</h2>
+            <p style="font-size:0.9em; margin-bottom:15px;">※ご入力がない場合、診断に進むことができません。</p>
+            <div class="question-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                <div class="question" style="padding:10px;">
+                    <h3 style="font-size:1em; margin-bottom:5px;">企業名<span style="color:red;">*</span></h3>
+                    <input type="text" id="companyName" placeholder="株式会社 〇〇" required style="width: 90%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div class="question" style="padding:10px;">
+                    <h3 style="font-size:1em; margin-bottom:5px;">担当者名<span style="color:red;">*</span></h3>
+                    <input type="text" id="personName" placeholder="山田 太郎" required style="width: 90%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div class="question" style="padding:10px;">
+                    <h3 style="font-size:1em; margin-bottom:5px;">メールアドレス<span style="color:red;">*</span></h3>
+                    <input type="email" id="email" placeholder="example@company.com" required style="width: 90%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+            </div>
+        </div>
+
+        <form id="quiz-form">
+            <div class="quiz-section active" data-section="1">
+                <h2>セクション 1/3: 組織の機動力と文化</h2>
+                <div class="question-grid">
+                    
+                    <div class="question">
+                        <h3>Q1. 新しい取り組みを始める際の意思決定のスピードは？</h3>
+                        <input type="radio" name="q1" id="q1a" value="direct"><label for="q1a"> A. 現場から経営層まで、即座に実行に移すことが多い</label>
+                        <input type="radio" name="q1" id="q1b" value="ad"><label for="q1b"> B. データや市場調査を行い、計画的に進めることが多い</label>
+                        <input type="radio" name="q1" id="q1c" value="agency"><label for="q1c"> C. 専門家の意見を聞き、慎重にリスクを評価してから進める</label>
+                        <input type="radio" name="q1" id="q1d" value="staff"><label for="q1d"> D. 既定のフローや手順を重視し、安易な変更は避ける</label>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q2. 社内での業務やプロジェクトにおける「失敗」への考え方は？</h3>
+                        <input type="radio" name="q2" id="q2a" value="direct"><label for="q2a"> A. 失敗を学習と捉え、挑戦したことを評価する</label>
+                        <input type="radio" name="q2" id="q2b" value="ad"><label for="q2b"> B. 許容範囲内でリスクをとり、結果を検証する</label>
+                        <input type="radio" name="q2" id="q2c" value="agency"><label for="q2c"> C. 確実性を最優先し、失敗は極力避けるべきである</label>
+                        <input type="radio" name="q2" id="q2d" value="staff"><label for="q2d"> D. 標準化された手順を守ることで、失敗を防ぐ</label>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q3. 社員間のコミュニケーションや組織構造の特徴は？</h3>
+                        <input type="radio" name="q3" id="q3a" value="ad"><label for="q3a"> A. 役職に関わらず活発な議論があり、風通しが良い</label>
+                        <input type="radio" name="q3" id="q3b" value="direct"><label for="q3b"> B. 少数精鋭で、個人の裁量と責任範囲が大きい</label>
+                        <input type="radio" name="q3" id="q3c" value="agency"><label for="q3c"> C. 職務権限と指揮系統が明確で、業務の専門性が高い</label>
+                        <input type="radio" name="q3" id="q3d" value="staff"><label for="q3d"> D. 部署間の垣根が低く、協力体制を重視する</label>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q4. 採用予算についての考え方は？</h3>
+                        <input type="radio" name="q4" id="q4a" value="ad"><label for="q4a"> A. 露出を確保するため、掲載への初期投資は惜しまない</label>
+                        <input type="radio" name="q4" id="q4b" value="direct"><label for="q4b"> B. コストは抑えつつ、優秀な人材へのスカウト費用は確保する</label>
+                        <input type="radio" name="q4" id="q4c" value="agency"><label for="q4c"> C. 採用決定時のみ費用が発生する「成功報酬」を基本とする</label>
+                        <input type="radio" name="q4" id="q4d" value="staff"><label for="q4d"> D. 人件費を変動費として扱いたい</label>
+                    </div>
+
+                </div>
+                <button type="button" class="next-button">次の質問へ (1/3)</button>
+            </div>
+
+            <div class="quiz-section" data-section="2">
+                <h2>セクション 2/3: 評価・育成と専門性</h2>
+                <div class="question-grid">
+                    
+                    <div class="question">
+                        <h3>Q5. 新入社員に対する育成方針は？</h3>
+                        <input type="radio" name="q5" id="q5a" value="ad"><label for="q5a"> A. 充実した研修プログラムで、時間をかけて育成する</label>
+                        <input type="radio" name="q5" id="q5b" value="direct"><label for="q5b"> B. OJT中心で、自発的に学び、早期戦力化を促す</label>
+                        <input type="radio" name="q5" id="q5c" value="agency"><label for="q5c"> C. 長期的な専門性を高めるため、メンターが手厚く指導する</label>
+                        <input type="radio" name="q5" id="q5d" value="staff"><label for="q5d"> D. 即戦力としてすぐに業務に入れるよう、スキルの検証を重視する</label>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q6. 社員に対する人事評価の基準は？</h3>
+                        <input type="radio" name="q6" id="q6a" value="direct"><label for="q6a"> A. 達成した成果や実績がストレートに反映される</label>
+                        <input type="radio" name="q6" id="q6b" value="ad"><label for="q6b"> B. 定量的な成果と、プロセス・協調性のバランスを重視する</label>
+                        <input type="radio" name="q6" id="q6c" value="agency"><label for="q6c"> C. 専門スキル、勤続年数、組織への貢献度など多角的に判断する</label>
+                        <input type="radio" name="q6" id="q6d" value="staff"><label for="q6d"> D. 決められた業務の遂行能力や正確性を最優先する</label>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q7. 社内のキャリアパスや異動の柔軟性は？</h3>
+                        <input type="radio" name="q7" id="q7a" value="direct"><label for="q7a"> A. 個人の意向を尊重し、柔軟な部署移動や職種変更が可能である</label>
+                        <input type="radio" name="q7" id="q7b" value="ad"><label for="q7b"> B. 経験を積んだ後、昇進やキャリアチェンジの機会が公開される</label>
+                        <input type="radio" name="q7" id="q7c" value="agency"><label for="q7c"> C. 長期的に特定の分野のスペシャリストを育てることを重視する</label>
+                        <input type="radio" name="q7" id="q7d" value="staff"><label for="q7d"> D. 基本的に業務範囲が明確に固定されている</label>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q8. 今回募集する職種の市場における一般的な特性は？</h3>
+                        <input type="radio" name="q8" id="q8a" value="ad"><label for="q8a"> A. 経験者が多く、一般的な求人サイトにも多く登録されている</label>
+                        <input type="radio" name="q8" id="q8b" value="direct"><label for="q8b"> B. 専門性が高いが、ターゲット企業を絞れば特定できる</label>
+                        <input type="radio" name="q8" id="q8c" value="agency"><label for="q8c"> C. 市場にほとんど情報が出回らない、希少性の高い人材である</label>
+                        <input type="radio" name="q8" id="q8d" value="staff"><label for="q8d"> D. 定型業務が中心で、スキルよりも人手の確保が急務である</label>
+                    </div>
+
+                </div>
+                <button type="button" class="next-button">次の質問へ (2/3)</button>
+            </div>
+
+            <div class="quiz-section" data-section="3">
+                <h2>セクション 3/3: 採用工数とコスト管理</h2>
+                <div class="question-grid">
+                    
+                    <div class="question">
+                        <h3>Q9. 採用活動に割ける担当者の工数とスキルは？</h3>
+                        <input type="radio" name="q9" id="q9a" value="ad"><label for="q9a"> A. 掲載後の応募対応や面接調整など、工数確保は比較的容易である</label>
+                        <input type="radio" name="q9" id="q9b" value="direct"><label for="q9b"> B. 優秀な人材を見極め、個別のアプローチを行うスキルと時間がある</label>
+                        <input type="radio" name="q9" id="q9c" value="agency"><label for="q9c"> C. 担当者が多忙なため、スクリーニングや初期対応は外部に委託したい</label>
+                        <input type="radio" name="q9" id="q9d" value="staff"><label for="q9d"> D. 採用後の教育や研修の工数を最小限に抑えたい</label>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q10. 今回の採用活動における最優先ゴールは？</h3>
+                        <input type="radio" name="q10" id="q10a" value="ad"><label for="q10a"> A. コストを抑え、自社ブランディングを強化しつつ複数名を採用する</label>
+                        <input type="radio" name="q10" id="q10b" value="direct"><label for="q10b"> B. ターゲット層と直接繋がり、意欲の高い人材をピンポイントで確保する</label>
+                        <input type="radio" name="q10" id="q10c" value="agency"><label for="q10c"> C. 費用はかかっても、絶対に要件を満たす確実な人材を採用する</label>
+                        <input type="radio" name="q10" id="q10d" value="staff"><label for="q10d"> D. 短期間で必要な人手を確保し、人件費を固定費にしない</label>
+                    </div>
+                </div>
+                <button type="button" id="submit-button">診断結果を見る</button>
+            </div>
+
+        </form>
+
+        <div id="result" class="quiz-section" style="display:none;">
+            <h2>診断完了</h2>
+            <div id="result-content">
+                <h3 id="result-type-main"></h3>
+                <div id="result-details">
+                    </div>
+            </div>
+            <button id="lock-button" class="disabled" disabled>結果を確定</button>
+        </div>
+
+    </div> <script src="script.js"></script>
+</body>
+</html>
